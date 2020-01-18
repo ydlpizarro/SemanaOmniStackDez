@@ -1,6 +1,14 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const routes = require('./routes');
 const app = express();
+mongoose.connect('mongodb+srv://yohelinux:11refa11@cluster0-xzhei.mongodb.net/test?retryWrites=true&w=majority',
+{
+    useNewUrlParser: true,
+    useUnifiedTopology:true,
+});
 app.use(express.json());
+app.use(routes);
 
 //app tem os seguintes metodos (http): get (obter), post (enviar), put (editar), delete (deletar)
 //tipos de parâmetros
@@ -10,10 +18,5 @@ app.use(express.json());
 
 //MongoDB (Banco não relacional)
 
-app.post('/users', (request,response)=> {
-    console.log(request.body);
-    return response.json({
-        message:'Hello Yohel'
-    });
-})
+
 app.listen(3333);
