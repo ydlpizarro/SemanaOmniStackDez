@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
 mongoose.connect('mongodb+srv://yohelinux:11refa11@cluster0-xzhei.mongodb.net/test?retryWrites=true&w=majority',
-{
-    useNewUrlParser: true,
-    useUnifiedTopology:true,
-});
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
 app.use(express.json());
 app.use(routes);
 
